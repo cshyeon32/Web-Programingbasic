@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #idPrnt{
+            width: 80vw;
+            height: 120vh;
+            background-color: hsla(120,50%,50%,0.5);
+            padding: 100px;
+            border: red dashed 3px;
+            position: relative;
+        }
+        #idChld{
+            width: 80px;
+            height: 80px;
+            background-color: hsla(240,100%,50%,0.7);
+        }
+        @keyframes mAni2 {
+            from{background-color: red; top:0%; left:0%;}
+            to{background-color:blue ; top:50%; left:50%}
+        }
+        @keyframes mAniMulti {
+            0%{background-color: red; top:0%; left:0%;}
+            20%{background-color:orange ; top:10%; left:10%}
+            40%{background-color: yellow; top:20%; left:20%;}
+            60%{background-color: green; top:30%; left:30%;}
+            80%{background-color: blue; top:40%; left:40%;}
+            100%{background-color: #000099; top:50%; left:50%;}
+        }
+    </style>
+    <script>
+        function mOk(pGbn){
+            let lChld=document.getElementById('idChld');
+
+            if (pGbn == "stat"){
+                lChld.style.position="static";
+                lChld.style.animation = "mAniMulti 2.5s forwards";
+                //
+            }
+            // 움직임이 없는
+            else if(pGbn=="rel"){
+                lChld.style.position="relative";
+                lChld.style.animation = "mAniMulti 2.5s forwards";
+            }
+            else if(pGbn=="abs"){
+                lChld.style.position="absolute";
+                lChld.style.animation = "mAniMulti 2.5s forwards 4 alternate";
+            }
+            //움직임
+            else if(pGbn=="fix"){
+                lChld.style.position="fixed";
+                lChld.style.animation = "mAniMulti 2.5s forwards ";
+                //
+            }
+            else if(pGbn=="reset"){
+                // 새로고침
+                location.reload();
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="mOk('stat')">static</button>
+    <button onclick="mOk('rel')">relative</button>
+    <button onclick="mOk('abs')">absolute</button>
+    <button onclick="mOk('fix')">fixed</button>
+    <button onclick="mOk('reset')">reset</button> 
+    <h1>are you ready?</h1>
+    <h2>stay foolish!</h2>
+    <h2>don't give up!</h2>
+    <h2>judt do it!</h2>
+    <div id="idPrnt">
+        <div id="idChld"></div>
+    </div>
+</body>
+</html>

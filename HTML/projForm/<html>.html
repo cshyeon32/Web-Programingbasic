@@ -1,0 +1,129 @@
+<html>
+    <head>
+        <litle>let's study about Form!!</litle>
+        <style>
+            h1 {
+                color:rgb(14, 119, 73);
+                text-align:center;
+            }
+            input{
+                background-color:rgb(193, 210, 237);
+
+            }
+            .clsLbl{
+                color: rgb(202, 155, 190);
+            }
+            .clsLbl2{
+                color: rgb(237, 168, 83);
+                display: inline-block;
+                width:13%;
+                text-align: right;
+            }
+            #idSb{
+                margin-left: 82;
+            }
+            </style>
+        <script>
+            function mChk(){
+                var lFm = document.fm;
+                var lGrd = lFm.grd;//학년 정보 가져오기
+                var lCls = lFm.cls; //반정보 가져오기
+                var lNum = lFm.num;//번호 정보가져오기
+                var lAcc = lfm.accessKey;//인증키 정보 가져오기
+
+                if(lGrd.value == "")
+                {
+                    alert("please select your grade!!");
+                    return false;
+                }
+                else if(lCls.value == "" || lCls.value == 0)//""는 문자일때만!(value)일때는 값이 아님
+                {
+                    alert("please select your class!!")
+                    lCls.focus();
+                    return false;
+                }
+                else if(lNum.value == "" || isNaN(lNum.value)){
+                    alert("please select your number!!")
+                    lNum.focus();
+                    return flase;
+                }
+                //번호가 미입력되거나 숫자값이 아니면(is NaN()) 필터링
+                else if(lAcc.lenght != 4 || lAcc.value == "")
+                {
+                    alert("please select your 인증키!!")
+                    lAcc.focus();
+                    return flase;
+                }
+                //access키가 4 자리(lenght)가 아니면 필터링
+                else
+                {
+                    fm.submit();//서버로 데이터 전송 (else 는 한줄이때 중관로 생략 가능!)
+                    alert('send success!!')
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1>welcome to Form's world!!</h1>
+        <form name="fm" method="post" action="http://arabbit.link/dirSw/insrtHstry.php" onsubmit="return false">
+           <div>
+            <lable class="clsLbl2"> 학년: </lable>
+            <!-- 구분자1:form 구분자2:radio,인증키:3521-->
+                <input id="idRd1" type="radio" name="grd" value="1">
+                <label for="idRd1" class="clsLbl"> 1학년 </label>
+
+                <input id="idRd2" type="radio" name="grd" value="2">
+                <label for="idRd2"class="clsLbl"> 2학년 </label>
+
+                <input id="idRd3" type="radio" name="grd" value="3">
+                <label for="idRd3" class="clsLbl"> 3학년 </label>
+           </div>
+           <!-- 
+            <input type="text" name="grd" placeholder="숫자만">
+            -->
+
+           <div>
+            <label class="clsLbl2"> 반: </label>
+            <select name="cls">
+                <option value="0"> 몇반? </option>
+                <option value="1">  1반 </option>
+                <option value="2">  2반 </option>
+                <option value="3">  3반 </option>
+                <option value="4">  4반 </option>
+
+            </select>
+           </div>
+           <!--
+            <input type="text" name="cls" placeholder="숫자만">
+
+            구분자1:html 구분자2:select,인증키:3521
+            -->
+
+           <div>
+            <lable class="clsLbl2"> 번호: </lable>
+            <input type="text" name="num" placeholder="숫자만">
+           </div>
+
+            <div>
+            <label class="clsLbl2"> 구분자1: </label>
+            <input type="text" name="gbn1">
+           </div>
+
+            <div>
+            <label class="clsLbl2"> 구분자2: </label>
+            <input type="text" name="gbn2">
+           </div>
+
+            <div>
+            <label class="clsLbl2"> 인증키: </label>
+            <input type="password" name="accessKey">
+           </div>
+
+            <div style="text-align: center;">
+            <input id="idSb" type="submit" value="보내기" onclick="mChk();">
+           </div>
+
+        </form>
+    </body>
+</html>

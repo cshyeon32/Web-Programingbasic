@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>csh's homepage!</title>
+        <script>
+            function mJava(pJob){
+                if(pJob=="contents")
+                document.getElementById("idH1").innerHTML="안녕!!!";
+                else if(pJob=="attr")
+                document.getElementById("idH5").style="color:green";
+                else if(pJob=="img")
+                document.getElementById("idImg").src="http://arabbit.link/images/tiger.png";
+                else if(pJob=="hide")
+                document.getElementById("idImg").style="display:none";
+                else if(pJob=="show")
+                document.getElementById("idImg").style="display:block";
+                }
+        </script>
+    </head>
+    <body>
+        <h1 id="idH1">hello my friends! this is csh's home</h1>
+        <h5 id="idH5" style="color:blue">welcom to my space!!</h5>
+        <img id="idImg" src="http://arabbit.link/images/rock.png">
+        <button onClick="mJava('contents');">내용 바꾸기</button>
+        <button onClick="mJava ('attr'); ">색깔 변경</button>
+        <button onClick="mJava ('img'); ">이미지 변경</button>
+        <button onClick="mJava ('hide'); ">숨기기</button>
+        <button onClick="mJava ('show'); ">보이기</button>
+        
+    </body>
+</html>

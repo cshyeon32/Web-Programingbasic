@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* idPgSlct
+        1.너비 부모영역 다채우기
+        2.글자 가운데 정렬
+
+        clsDot
+        1.display:inline-block
+        2.너비 화면너비 3%
+        2.높이 화면너비 3%
+        3.모서리 50%
+        4.배경색 hsla로 밝은 파랑*/
+        #idPgSlct{ 
+            width:100%;
+            text-align: center;
+            margin: 1vh;
+            /* 바같 여백:margim
+            안 여백:padding */
+        }
+        .clsDot{
+            display:inline-block;
+            width: 3vw;
+            height: 3vw;
+            border-radius: 50%;
+            background-color: hsla(240,100%,70%,1);
+            cursor: pointer;
+        }
+        .clsSlde{
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .clsFade{
+            display: none;
+        }
+        .clsSlde img{
+            width: 100%;
+            height: 100%;
+        }
+        .clsPageText{
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            color: #eee;
+            font-size: 3vw;
+            font-weight: bold;
+        }
+        .clsCptn{
+            position: absolute;
+            bottom: 2px;
+            width: 100%;
+            text-align: center;
+            /* #은 16진수 */
+            color: #eee;
+            font-size: 3vw;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        var gCurPage=0;
+     function mCurrent(pSlide){
+        // 블록 변수 만들때 let 사용
+        let arrSlides = document.querySelectorAll('.clsSlde');
+        for(let i=0; i < arrSlides.length; i++){
+            arrSlides[i].style.display="none";
+        }
+        arrSlides[pSlide-1].style.display="block"
+     }
+    //  전역 변수는 밖에서 선언 var~~
+    window.onload = function(){
+        gCurPage = 3;
+        mCurrent(gCurPage);
+     }
+    </script>
+</head>
+<body>
+    <div id="idPrnt" style="width:100vw;height:70vh;background-color: aqua;">
+        <!-- 1. div 태그 추가(클래스:clsSlde, clsFade)
+                가.자식항목 : div 태그 추가(클래스: clsPageTxt, 내용: 1/3 )
+                나. 자식항목: img 태그 추가(src: http://arabbit.link/images/aurora.jpg)
+                다. 자식항목: div 태그 추가(클래스:clsCptn, 내용: aurora) -->
+        <div class="clsSlde">
+            <div class="clsPageText"> 1/3 </div>
+            <img src="http://arabbit.link/images/aurora.jpg">
+            <div class="clsCptn"> aurora </div>
+        </div>
+        <div class="clsSlde clsFade">
+            <div class="clsPageText"> 2/3 </div>
+            <img src="http://arabbit.link/images/canyon.jpg">
+            <div class="clsCptn"> canyon </div>
+        </div>
+        <div class="clsSlde clsFade">
+            <div class="clsPageText"> 3/3 </div>
+            <img src="http://arabbit.link/images/mountain.jpg">
+            <div class="clsCptn"> mountain </div>
+        </div>
+    </div>
+    <div id="idPgSlct">
+        <span class="clsDot" onclick="mCurrent('1')"></span>
+        <span class="clsDot" onclick="mCurrent('2')"></span>
+        <span class="clsDot" onclick="mCurrent('3')"></span>
+        <!-- span은 줄이 안바뀜(inline) -->
+    </div>
+</body>
+</html>

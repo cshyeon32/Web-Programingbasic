@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #idObj{
+            width: 80px;
+            height: 80px;
+            background-color: hsla(205, 80%, 50%, 0.5);
+            transition: 4s;
+        }
+        #idPrnt{
+            width: 90vw;
+            height: 80vw;
+            padding: 100px;
+            border: red double 2px;
+            /* border:경계선 */
+        }
+    </style>
+    <script>
+        function mOk(pGbn){
+            let lObj=document.getElementById("idObj");
+            if(pGbn=="tran")
+            {
+                lObj.style.transform=`translate(50px,80px)`;
+            }
+            else if(pGbn=="rot")
+            {
+                lObj.style.transform=`rotate(150deg)`;
+            }
+            else if(pGbn=="scal")
+            {
+                lObj.style.transform=`scale(0.5, 3)`
+            }
+            else if(pGbn=="skwX")
+            {
+                lObj.style.transform=`skewX(45deg)`
+            }
+            else if(pGbn=="skwY")
+            {
+                lObj.style.transform=`skewY(45deg)`
+            }
+            else if(pGbn=="rotX")
+            {
+                lObj.style.transform=`rotateX(135deg)`
+            }
+            else if(pGbn=="rotY")
+            {
+                lObj.style.transform=`rotateY(135deg)`
+            }
+            else if(pGbn=="rotZ")
+            {
+                lObj.style.transform=`rotateZ(135deg)`
+            }
+            else if(pGbn=="init")
+            {
+                location.reload();
+                // 새로고침기능
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="mOk('tran')"> translate </button>
+    <button onclick="mOk('init')"> init </button>
+    <button onclick="mOk('rot')"> rotate </button>
+    <button onclick="mOk('scal')"> scale </button>
+    <button onclick="mOk('skwX')"> skewX </button>
+    <button onclick="mOk('skwY')"> skewY </button>
+    <button onclick="mOk('rotX')"> rotateX </button>
+    <button onclick="mOk('rotY')"> rotateY </button>
+    <button onclick="mOk('rotZ')"> rotateZ </button>
+    <div id="idPrnt">
+        <div id="idObj">
+        </div>
+        <!-- 0.idPrnt 너비:90vw,높이:80vh;패딩값:100px;
+            경계선 추가:빨강,이중선(double),2px
+        1.scal:너비:1/2배,높이:3배
+        2.x축기준 찌그러뜨리기:45도
+        3.y축기준 찌그러뜨리기:45도
+        4.x축 기준으로 135도 회전
+        5.y축 기준으로 135도 회전
+        6.z축 기준으로 135도 회전
+        7.변형이 4초동안 진행되도록 한다 -->
+    </div>
+</body>
+</html>

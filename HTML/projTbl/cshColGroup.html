@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border: 1px dotted blue;
+        }
+        table{
+            width:80%;
+            border-collapse: collapse;
+        }
+        th{
+            background-color: rgb(0, 255, 68);
+            height: 70px;
+            text-align: left;  
+            vertical-align: top;
+            color:white
+        }
+        td{
+            height: 40px;
+            text-align: right;
+            vertical-align: bottom;
+            padding:30px;
+        }
+        /* 경계선:1px,실선, 파랑색
+        태이클 너비:80%
+        1행의 높이:70px 나머지 :높이:40px
+        1행 가로 정렬 왼쪽
+        나머지 가로 정렬 오른쪽*/
+    </style>
+</head>
+<body>
+    <table>
+        <clagroup>
+            <col span="1" style="Width:20%; background-color: bisque;">
+            <col span="1" style="Width:30%; background-color: rgb(247, 210, 216);">
+            <col span="1" style="Width:50%; background-color: rgb(247, 210, 216);">
+        </clagroup>
+        <!-- 1번 칼럼:너비 :20%, 2칼럼:30%,배경색:3번 컬럼:50%-->
+        <tr>
+            <th> name </th>
+            <th> tel </th>
+            <th> 국가 </th>
+        </tr>
+        <tr>
+            <td> 최소현 </td>
+            <td> 010-9297-0144 </td>
+            <td> 대한민국 </td>
+        </tr>
+        <tr>
+            <td> 최연준 </td>
+            <td> 010-3839-9274 </td>
+            <td> 대한민국 </td>
+        </tr>
+        <tr>
+            <td> 전정국 </td>
+            <td> 010-8383-8217 </td>
+            <td> 대한민국 </td>
+        </tr>
+    </table>
+</body>
+</html>

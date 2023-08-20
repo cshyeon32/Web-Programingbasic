@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #idPrnt{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: hsla(50,100%,50%,1);
+        }
+        #idChld{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: hsla(0, 100%,60%, 1);
+        }
+        /* 큐 채도,밝기(명도),불투명도 */
+    </style>
+    <script>
+
+        var idIntvl;
+
+        function mOk(){
+
+            let lChld = document.getElementById("idChld");
+            let lBtn = document.getElementById("idBtn");
+            if (lBtn.textContent=="start")
+            {
+                lBtn.textContent = "stop";
+                lChld.style.top="0%";
+                lChld.style.left="0%";
+                idIntvl=setInterval(mIntrvl,100);
+                //setInterval이 뭐지?
+
+                function mIntrvl(){
+                    // alert(lChld.style.top)
+                    let lTop=lChld.style.top;
+                    let lLeft=lChld.style.left;
+                    let iTop=Number(lTop.substring(0,lTop.length-1));
+                    let iLeft=Number(lLeft.substring(0,lLeft.length-1));
+                    iTop=(iTop+2)%52;
+                    iLeft=(iLeft+2)%52;
+                    lChld.style.top=iTop+"%"
+                    lChld.style.left=iLeft+"%"
+                }
+            }
+            else//stop
+            {
+                clearInterval(idIntvl);
+                lBtn.textContent = "start";
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="idBtn" onclick="mOk();">start</button>
+    <div id="idPrnt">
+        <div id="idChld">
+        </div>
+    </div>
+</body>
+</html>
